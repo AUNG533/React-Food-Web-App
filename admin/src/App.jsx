@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import { Routes, Route } from 'react-router-dom'
@@ -8,7 +8,8 @@ import Orders from "./pages/Orders/Orders";
 import { ToastContainer } from 'react-toastify';
 
 function App() {
-  const [count, setCount] = useState(0);
+
+  const url = "http://localhost:4000"
 
   return (
     <>
@@ -18,9 +19,9 @@ function App() {
       <div className="app-content">
         <Sidebar />
         <Routes>
-          <Route path="/add" element={<Add/>}/>
-          <Route path="/list" element={<List/>}/>
-          <Route path="/orders" element={<Orders/>}/>
+          <Route path="/add" element={<Add url={url}/>}/>
+          <Route path="/list" element={<List url={url}/>}/>
+          <Route path="/orders" element={<Orders url={url}/>}/>
         </Routes>
       </div>
     </>
